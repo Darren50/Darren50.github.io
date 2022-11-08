@@ -3,6 +3,13 @@
     background-color: black;
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 /* hero background image */
 .bgimage {
     height: 100vh;
@@ -61,6 +68,10 @@
 }
 
 .card:hover .servicesIcon {
+    color: #008000;
+}
+
+.card:hover .laravelIcon {
     color: #008000;
 }
 

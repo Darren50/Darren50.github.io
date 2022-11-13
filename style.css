@@ -38,11 +38,17 @@
 }
 
 /* spacing on all sections */
-/* #about, #services, #portfolio, #contact {
+#about,
+#services,
+#portfolio,
+#contact {
+    min-height: 100vh;
     margin-top: 4rem;
     padding-top: 4rem;
-} */
+}
+
 #contact {
+    min-height: 100vh;
     padding-bottom: 4rem;
 }
 

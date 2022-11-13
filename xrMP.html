@@ -29,16 +29,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="index.html#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
+                        <a class="nav-link" href="index.html#skills">Skills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Projects</a>
+                        <a class="nav-link" href="index.html#portfolio">Projects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -49,7 +49,7 @@
         </div>
     </nav>
     <!-- main banner -->
-    <section class="bgimage" id="home">
+    <!-- <section class="bgimage" id="home">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
@@ -58,230 +58,127 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- about section-->
-    <section id="about">
+    <section id="project">
         <div class="container mt-4 pt-4">
-            <h1 class="text-center">About Me</h1>
+            <h1 class="text-center">XR Model Portal</h1>
             <div class="row mt-4">
-                <!-- <div class="col-lg-4">
-                    <img src="images/about.jpeg" class="imageAboutPage" alt="">
-                </div> -->
-
+                <p>
+                    <img src="images/XRmodelportal.jpg" class="center" alt="">
+                </p>
                 <div class="col-lg-12">
-                    <p> I am a highly motivated polytechnic student who is passionate about STEM and has a zest for
-                        complex problem-solving. I enjoy working together in a team to accomplish tasks and constantly
-                        strive for improvement.
-
+                    <p>
+                        <center>This is a project that I have done during my 5-month internship at DSTA.</center>
+                        <br>
+                        <br>
+                        <br>
+                        <b>Project Summary:</b>
+                        DSTA required a
+                        consolidated 3D model repository platform to allow 3D models to be hosted, shared and interacted
+                        with in order
+                        with in order to improve the productivity of the organisation.
                     </p>
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <ul>
-                                <li>Name: Darren</li>
-                                <li>Age: 19</li>
-                                <li>Occupation: Engineering Student</li>
-
-                            </ul>
-                        </div>
-                        <!-- <div class="col-md-6">
-                            <ul>
-                                <li>Hobbies: Running, Programming making music</li>
-                                <li>Age: 28</li>
-                                <li>Occupation: Web Developer</li>
-
-                            </ul>
-                        </div> -->
-                    </div>
-                    <div class="row mt-3">
-                        <p>My hobbies include running, programming, racking my brain over LeetCode problems and making
-                            music!
+                    <p>At the start, this project definitely seemed stressful for someone who hasn't done web
+                        development before. Having to decide how to store, display, share the 3D models and more.
+                        Features like:
+                    <ul>
+                        <li>User Authentication</li>
+                        <li>Augmented Reality (AR) view</li>
+                        <li>File conversion</li>
+                    </ul>
+                    and more were some of the must-haves for the project to succeed.
+                    </p>
+                    <p>
+                        To begin, I decided to find the best modules, libraries and languages to use for the project. I
+                        stumbled upon <b>modelviewer.dev</b>, a module created by Google that allows displaying of 3D
+                        models
+                        of .glTF and .GLB format on the web using WebGL.
+                    </p>
+                    <p>
+                        <img src="images/mvdPic.PNG" class="center" alt="">
+                    </p>
+                    <p>
+                        This library was absolutely amazing as it allowed me to easily display the models without having
+                        to interfere much with <b>Three.js</b> which will take more time to learn.
+                    </p>
+                    <p>
+                        <model-viewer src="models/village.glb" class="card-img-top center"
+                            style="width:500px;height:500px;" shadow-intensity="1" camera-controls touch-action="pan-y">
+                        </model-viewer>
+                    </p>
+                    <p>I then tinkered with <b>PHP</b> and <b>XAMPP</b> and quickly learnt the basics of them and
+                        created a simple web app with the core features like downloading, uploading and displaying the
+                        models.
+                    </p>
+                    <p>
+                        <img src="images/3DAMprototype.PNG" class="center" alt="">
+                    </p>
+                    <p>Afterwards, I had to work on creating a 3D file converter. This was honestly the most difficult
+                        part
+                        of the entire project as there were hardly any resources on it. Furthermore, the format that
+                        DSTA
+                        uses was OpenFlight (.FLT), which was unconventional and old. I scoured through the internet
+                        throughly and could only find 1 software that can do something like this for free.
+                        The software was <b>ModelConverterX</b>.
+                    </p>
+                    <p>
+                        <img src="images/MCX.PNG" class="center" alt="">
+                    </p>
+                    <p>Learning to implement the converting software on the web was easier due to the kind users from
+                        the
+                        forums
+                        which assisted me.
+                    </p>
+                    <p>Now, I wished that that was it for the file conversion process but no. You see, the thing is MCX
+                        only converted OpenFlight files to .OBJ files. The .glTF output didn't work as well as it is
+                        separated to multiple files which is not supported by ModelViewerDev. So what I did was to
+                        use the Blender as a Python module to finalise the conversion. So the final conversion process
+                        looks like this:
+                    </p>
+                    <p>
+                        <img src="images/fileConversionProcess.PNG" class="center" alt="">
+                    </p>
+                    <p>
+                        I had to then find a web framework to move my project to. As much as it was possible to use raw
+                        PHP to do everything, a web framework would have many out of the box tools like user
+                        authentication which would be a pain to do with PHP alone.
+                    </p>
+                    <p>
+                        Since I was already using PHP, I chose <b>Laravel</b> as my web framework. It's one of the most
+                        popular web frameworks and I found it simple to use. I migrated my code to the Laravel framework
+                        and implemented features like an admin panel, the user authentication and some minor stuff.
+                    </p>
+                    <p>
+                        I implemented other features along the way such as:
+                    <ul>
+                        <li>Zipped file download of multiple models</li>
+                        <li>Augmented Reality (AR) view</li>
+                        <p>
+                            <img src="images/ARview.png" class="center" alt="" style="height:40vh; width:20vh">
                         </p>
-                    </div>
-                </div>
-            </div>
-    </section>
-
-    <!-- skills section-->
-    <section id="skills">
-        <div class="container">
-            <h1 class="text-center">Skills</h1>
-            <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div class="card servicesText">
-                        <div class="card-body">
-                            <img src="images/laravelIcon.png" width="20" height="100" class="center laravelIcon">
-                            <h4 class="card-title mt-3">Website Development</h4>
-                            <p class="card-text mt-3">I have experience with server-sided languages such as <b>PHP</b>
-                                and <b>Laravel</b>. You can view some of my projects below!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mt-4">
-                    <div class="card servicesText">
-                        <div class="card-body">
-                            <img src="images/jsHTMLCSS.png" width="20" height="100" class="center">
-                            <h4 class="card-title mt-3">Website Design</h4>
-                            <p class="card-text mt-3">Front-end coding is one of my core specialties, utilising tools
-                                such as <b>JavaScript</b>, <b>HTML</b> and <b>CSS</b>. I have also been working on
-                                learning
-                                <b>Vue.js</b>!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card servicesText">
-                        <div class="card-body">
-                            <img src="images/apacheIcon.svg" width="20" height="100" class="center">
-                            <h4 class="card-title mt-3">Website Deployment</h4>
-                            <p class="card-text mt-3">Deployment is one of the hardest skills but fortunately, I have
-                                experience utilising <b>Apache</b> and virtual machines to get a website online.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div class="card servicesText">
-                        <div class="card-body">
-                            <i class='fas servicesIcon fa-search'></i>
-                            <h4 class="card-title mt-3">SEO</h4>
-                            <p class="card-text mt-3">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card servicesText">
-                        <div class="card-body">
-                            <i class='fas servicesIcon fa-shield-alt'></i>
-                            <h4 class="card-title mt-3">DevOps</h4>
-                            <p class="card-text mt-3">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card servicesText">
-                        <div class="card-body">
-                            <i class='fas servicesIcon fa-wrench'></i>
-                            <h4 class="card-title mt-3">QA</h4>
-                            <p class="card-text mt-3">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-    </section>
-
-    <!-- portfolio section-->
-    <section id="portfolio">
-        <div class="container mt-3">
-            <h1 class="text-center">Projects</h1>
-            <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div class="card">
-                        <model-viewer src="models/village.glb" class="card-img-top" style="width:100%"
-                            shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                        <div class="card-body">
-                            <h4 class="card-title">XR Model Portal</h4>
-                            <p class="card-text">All-in-one 3D modelling sharing platform</p>
-                            <div class="text-center">
-                                <a href="xrMP.html" class="btn btn-success">Check it out!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <model-viewer src="models/village.glb" class="card-img-top" style="width:100%"
-                            shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-                        <!-- <img class="card-img-top" src="images/portfolioImage4.jpg" alt="Card image" style="width:100%"> -->
-                        <div class="card-body">
-                            <h4 class="card-title">Quiz App</h4>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="images/portfolioImage3.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Product Landing Page</h4>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="images/portfolioImage4.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Messaging Service</h4>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="images/portfolioImage1.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Twitter Clone</h4>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4">
-                    <div class="card portfolioContent">
-                        <img class="card-img-top" src="images/portfolioImage4.jpg" alt="Card image" style="width:100%">
-                        <div class="card-body">
-                            <h4 class="card-title">Blog App</h4>
-                            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-success">Link</a>
-                            </div>
-                        </div>
-                    </div>
+                        <li>PDF download of list of models</li>
+                        <li>User access rights (where users can only view models of their level)</li>
+                        <li>KML File download</li>
+                        <li>Cart system</li>
+                    </ul>
+                    </p>
+                    <p>
+                        I made use of virtual machines to deploy the web application. One VM will be the 'storage' VM
+                        and the other will be the one hosting the web app. This is done so that it is easier to scale
+                        the technical requirements like storage space or processing speed. The final deployment
+                        architecture is seen below.
+                    </p>
+                    <p>
+                        <img src="images/finalDeploymentACT.PNG" class="center" alt="">
+                    </p>
+                    <p>As much as I want to describe more about my internship experience, it would probably take hours
+                        to do so. To finalise my thoughts about this project, was this the most well done project? No.
+                        Was this project coded the best way possible? No. Did I learn a lot however? Definitely. I can
+                        safely say that this internship experience introduced me to not only technical skills like web
+                        development, but also things like self-directed learning which will benefit me more as I
+                        continue my journey to be a better programmer. </p>
                 </div>
             </div>
     </section>

@@ -39,12 +39,13 @@
 
 /* spacing on all sections */
 #about,
+#skills,
 #services,
 #portfolio,
 #contact {
     min-height: 100vh;
-    margin-top: 4rem;
-    padding-top: 4rem;
+    margin-top: 0.1rem;
+    padding-top: 0.1rem;
 }
 
 #contact {

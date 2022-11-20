@@ -10,6 +10,12 @@
     width: 50%;
 }
 
+.centerSUF {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* hero background image */
 .bgimage {
     height: 100vh;

@@ -2,253 +2,209 @@
 <html lang="en">
 
 <head>
-    <title>XR Model Portal</title>
+    <title>XR Model Portal – Darren Toh</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- linking css file -->
-    <link rel="stylesheet" href="style.css">
-    <!-- bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <meta name="description" content="Case study: XR Model Portal, an organisation-wide 3D model repository platform built during my DSTA internship.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+    <!-- set theme before first paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            const saved = localStorage.getItem('theme');
+            const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+            if (dark) document.documentElement.dataset.theme = 'dark';
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbarScroll">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Darren</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#portfolio">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-
+    <!-- ============ nav ============ -->
+    <nav class="nav" id="nav">
+        <div class="wrap nav-inner">
+            <a class="brand" href="index.html">Darren<span>.</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex; align-items:center; gap:.8rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <circle cx="12" cy="12" r="4" />
+                        <path
+                            d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+                    </svg>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </nav>
-    <!-- main banner -->
-    <!-- <section class="bgimage" id="home">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
-                    <h2 class="hero_title typed-out container" style="font-size:8vw;">Hi, I'm Darren</h2>
-                    <p class="hero_desc type2 container">I am an engineering student from Singapore</p>
-                </div>
+
+    <!-- ============ case study ============ -->
+    <main class="case">
+        <header class="case-hero">
+            <span class="kicker">Case Study</span>
+            <h1>XR Model Portal</h1>
+            <p class="case-sub">A consolidated 3D model repository platform for hosting, sharing and interacting with
+                3D models, built during my 5-month internship at DSTA.</p>
+            <div class="tags">
+                <span class="tag">Laravel</span>
+                <span class="tag">PHP</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">SQL Server</span>
+                <span class="tag">Blender API</span>
+                <span class="tag">model-viewer</span>
             </div>
-        </div>
-    </section> -->
+        </header>
 
-    <!-- about section-->
-    <section id="project">
-        <div class="container mt-4 pt-4">
-            <h1 class="text-center">XR Model Portal</h1>
-            <div class="row mt-4">
-                <p>
-                    <img src="images/XRmodelportal.jpg" class="center" alt="">
-                </p>
-                <div class="col-lg-12">
-                    <p>
-                        <center>This is a project that I have done during my 5-month internship at DSTA.</center>
-                        <br>
-                        <br>
-                        <br>
-                        <b>Project Summary:</b>
-                        DSTA required a
-                        consolidated 3D model repository platform to allow 3D models to be hosted, shared and interacted
-                        with in order
-                        with in order to improve the productivity of the organisation.
-                    </p>
-                    <p>At the start, this project definitely seemed stressful for someone who hasn't done web
-                        development before. Having to decide how to store, display, share the 3D models and more.
-                        Features like:
-                    <ul>
-                        <li>User Authentication</li>
-                        <li>Augmented Reality (AR) view</li>
-                        <li>File conversion</li>
-                    </ul>
-                    and more were some of the must-haves for the project to succeed.
-                    </p>
-                    <p>
-                        To begin, I decided to find the best modules, libraries and languages to use for the project. I
-                        stumbled upon <b>modelviewer.dev</b>, a module created by Google that allows displaying of 3D
-                        models
-                        of .glTF and .GLB format on the web using WebGL.
-                    </p>
-                    <p>
-                        <img src="images/mvdPic.PNG" class="center" alt="">
-                    </p>
-                    <p>
-                        This library was absolutely amazing as it allowed me to easily display the models without having
-                        to interfere much with <b>Three.js</b> which will take more time to learn.
-                    </p>
-                    <p>
-                        <model-viewer src="models/village.glb" class="card-img-top center"
-                            style="width:500px;height:500px;" shadow-intensity="1" camera-controls touch-action="pan-y">
-                        </model-viewer>
-                    </p>
-                    <p>I then tinkered with <b>PHP</b> and <b>XAMPP</b> and quickly learnt the basics of them and
-                        created a simple web app with the core features like downloading, uploading and displaying the
-                        models.
-                    </p>
-                    <p>
-                        <img src="images/3DAMprototype.PNG" class="center" alt="">
-                    </p>
-                    <p>Afterwards, I had to work on creating a 3D file converter. This was honestly the most difficult
-                        part
-                        of the entire project as there were hardly any resources on it. Furthermore, the format that
-                        DSTA
-                        uses was OpenFlight (.FLT), which was unconventional and old. I scoured through the internet
-                        throughly and could only find 1 software that can do something like this for free.
-                        The software was <b>ModelConverterX</b>.
-                    </p>
-                    <p>
-                        <img src="images/MCX.PNG" class="center" alt="">
-                    </p>
-                    <p>Learning to implement the converting software on the web was easier due to the kind users from
-                        the
-                        forums
-                        which assisted me.
-                    </p>
-                    <p>Now, I wished that that was it for the file conversion process but no. You see, the thing is MCX
-                        only converted OpenFlight files to .OBJ files. The .glTF output didn't work as well as it is
-                        separated to multiple files which is not supported by ModelViewerDev. So what I did was to
-                        use the Blender as a Python module to finalise the conversion. So the final conversion process
-                        looks like this:
-                    </p>
-                    <p>
-                        <img src="images/fileConversionProcess.PNG" class="center" alt="">
-                    </p>
-                    <p>
-                        I had to then find a web framework to move my project to. As much as it was possible to use raw
-                        PHP to do everything, a web framework would have many out of the box tools like user
-                        authentication which would be a pain to do with PHP alone.
-                    </p>
-                    <p>
-                        Since I was already using PHP, I chose <b>Laravel</b> as my web framework. It's one of the most
-                        popular web frameworks and I found it simple to use. I migrated my code to the Laravel framework
-                        and implemented features like an admin panel, the user authentication and some minor stuff.
-                    </p>
-                    <p>
-                        I implemented other features along the way such as:
-                    <ul>
-                        <li>Zipped file download of multiple models</li>
-                        <li>Augmented Reality (AR) view</li>
-                        <p>
-                            <img src="images/ARview.png" class="center" alt="" style="height:40vh; width:20vh">
-                        </p>
-                        <li>PDF download of list of models</li>
-                        <li>User access rights (where users can only view models of their level)</li>
-                        <li>KML File download</li>
-                        <li>Cart system</li>
-                    </ul>
-                    </p>
-                    <p>
-                        I made use of virtual machines to deploy the web application. One VM will be the 'storage' VM
-                        and the other will be the one hosting the web app. This is done so that it is easier to scale
-                        the technical requirements like storage space or processing speed. The final deployment
-                        architecture is seen below.
-                    </p>
-                    <p>
-                        <img src="images/finalDeploymentACT.PNG" class="center" alt="">
-                    </p>
-                    <p>As much as I want to describe more about my internship experience, it would probably take hours
-                        to do so. To finalise my thoughts about this project, was this the most well done project? No.
-                        Was this project coded the best way possible? No. Did I learn a lot however? Definitely. I can
-                        safely say that this internship experience introduced me to not only technical skills like web
-                        development, but also things like self-directed learning which will benefit me more as I
-                        continue my journey to be a better programmer. </p>
-                </div>
+        <article class="case-article">
+            <figure>
+                <img src="images/XRmodelportal.jpg" alt="XR Model Portal home page">
+            </figure>
+
+            <p><b>Project summary:</b> DSTA required a consolidated 3D model repository platform to allow 3D models to
+                be hosted, shared and interacted with, in order to improve the productivity of the organisation.</p>
+
+            <p>At the start, this project definitely seemed stressful for someone who hadn't done web development
+                before. I had to decide how to store, display and share the 3D models, and features like these were
+                must-haves for the project to succeed:</p>
+            <ul>
+                <li>User authentication</li>
+                <li>Augmented Reality (AR) view</li>
+                <li>File conversion</li>
+            </ul>
+
+            <p>To begin, I decided to find the best modules, libraries and languages to use for the project. I
+                stumbled upon <b>modelviewer.dev</b>, a module created by Google that allows displaying of 3D models of
+                .glTF and .GLB format on the web using WebGL.</p>
+
+            <figure>
+                <img src="images/mvdPic.PNG" alt="modelviewer.dev documentation">
+            </figure>
+
+            <p>This library was absolutely amazing as it allowed me to easily display the models without having to
+                interfere much with <b>Three.js</b>, which would take more time to learn. Here it is in action, drag
+                to rotate:</p>
+
+            <model-viewer src="models/village.glb" shadow-intensity="1" camera-controls auto-rotate
+                touch-action="pan-y"></model-viewer>
+
+            <p>I then tinkered with <b>PHP</b> and <b>XAMPP</b>, quickly learnt the basics of them and created a simple
+                web app with the core features like downloading, uploading and displaying the models.</p>
+
+            <figure>
+                <img src="images/3DAMprototype.PNG" alt="Early prototype of the 3D asset manager">
+            </figure>
+
+            <p>Afterwards, I had to work on creating a 3D file converter. This was honestly the most difficult part of
+                the entire project as there were hardly any resources on it. Furthermore, the format that DSTA uses was
+                OpenFlight (.FLT), which was unconventional and old. I scoured through the internet thoroughly and
+                could only find one piece of software that could do something like this for free:
+                <b>ModelConverterX</b>.</p>
+
+            <figure>
+                <img src="images/MCX.png" alt="ModelConverterX interface">
+            </figure>
+
+            <p>Learning to implement the converting software on the web was easier thanks to the kind users from the
+                forums who assisted me.</p>
+
+            <p>Now, I wished that that was it for the file conversion process, but no. You see, MCX only converted
+                OpenFlight files to .OBJ files. The .glTF output didn't work well as it is separated into multiple
+                files, which is not supported by model-viewer. So what I did was use Blender as a Python module to
+                finalise the conversion. The final conversion process looks like this:</p>
+
+            <figure>
+                <img src="images/fileConversionProcess.PNG" alt="Final file conversion pipeline">
+            </figure>
+
+            <p>I then had to find a web framework to move my project to. As much as it was possible to use raw PHP for
+                everything, a web framework has many out-of-the-box tools like user authentication, which would be a
+                pain to build with PHP alone.</p>
+
+            <p>Since I was already using PHP, I chose <b>Laravel</b> as my web framework. It's one of the most popular
+                web frameworks and I found it simple to use. I migrated my code over and implemented features like an
+                admin panel and user authentication.</p>
+
+            <p>I implemented other features along the way, such as:</p>
+            <ul>
+                <li>Zipped file download of multiple models</li>
+                <li>Augmented Reality (AR) view</li>
+                <li>PDF download of the list of models</li>
+                <li>User access rights, where users can only view models of their level</li>
+                <li>KML file download</li>
+                <li>Cart system</li>
+            </ul>
+
+            <figure class="shot">
+                <img src="images/ARview.png" alt="Augmented reality view on a phone">
+                <figcaption>The AR view in action</figcaption>
+            </figure>
+
+            <p>I made use of virtual machines to deploy the web application. One VM acts as the storage VM and the
+                other hosts the web app. This makes it easier to scale technical requirements like storage space or
+                processing speed. The final deployment architecture is seen below:</p>
+
+            <figure>
+                <img src="images/finalDeploymentACT.PNG" alt="Final deployment architecture">
+            </figure>
+
+            <p>As much as I want to describe more about my internship experience, it would probably take hours to do
+                so. To finalise my thoughts: was this the most well-done project? No. Was it coded the best way
+                possible? No. Did I learn a lot? Definitely. This internship introduced me not only to technical skills
+                like web development, but also to self-directed learning, which will benefit me as I continue my
+                journey to become a better programmer.</p>
+
+            <div class="case-cta">
+                <a class="btn btn-primary" href="index.html#projects">← Back to all projects</a>
             </div>
-    </section>
+        </article>
+    </main>
 
-    <!-- contact section-->
-    <section id="contact">
-        <div class="container mt-3 contactContent">
-            <h1 class="text-center">Contact Me</h1>
-
-            <div class="row mt-4">
-                <div class="col-lg-6">
-                    <!-- to edit google map goto https://www.embed-map.com type your location, generate html code and copy the html  -->
-                    <div style="max-width:100%;overflow:hidden;color:red;width:500px;height:500px;">
-                        <div id="embedmap-canvas" style="height:100%; width:100%;max-width:100%;">
-                            <iframe style="height:100%;width:100%;border:0;" frameborder="0"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.1903618464!2d103.70416161630784!3d1.3143393871284792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da11238a8b9375%3A0x887869cf52abf5c4!2sSingapore!5e0!3m2!1sen!2ssg!4v1667718780333!5m2!1sen!2ssg"
-                                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                        <a class="googlemaps-html" href="https://www.embed-map.com"
-                            id="get-data-forembedmap">https://www.embed-map.com</a>
-                        <style>
-                            #embedmap-canvas img {
-                                max-width: none !important;
-                                background: none !important;
-                                font-size: inherit;
-                                font-weight: inherit;
-                            }
-                        </style>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <!-- form fields -->
-                    <form action="https://formspree.io/f/mbjbpnpr" method="POST">
-                        <!-- <input type="text" class="form-control form-control-lg" placeholder="Name"> -->
-                        <input type="email" name="email" class="form-control mt-3" placeholder="Email">
-                        <!-- <input type="text" class="form-control mt-3" placeholder="Subject"> -->
-                        <div class="mb-3 mt-3">
-                            <textarea class="form-control" rows="5" id="comment" name="message"
-                                placeholder="Message Details"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-success mt-3">Contact Me</button>
-
-                    </form>
-
-
-                </div>
-
+    <!-- ============ footer ============ -->
+    <footer>
+        <div class="wrap">
+            <div class="socials">
+                <a href="https://github.com/Darren50" target="_blank" rel="noopener" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22l-.01 3.29c0 .32.22.7.83.57A12 12 0 0 0 12 .3z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/darrentoh25" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+                    </svg>
+                </a>
             </div>
-        </div>
-    </section>
-    <!-- footer section-->
-    <footer id="footer">
-        <div class="container-fluid">
-            <!-- social media icons -->
-            <div class="social-icons mt-4">
-                <a href="https://www.github.com/darren50" target="_blank"><i class="fab fa-github"></i></a>
-                <!-- <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a> -->
-                <a href="https://www.linkedin.com/in/darrentoh25" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <!-- <a href="https://www.twitch.tv/" target="_blank"><i class="fab fa-twitch"></i></a> -->
-            </div>
+            <p>© 2026 Darren Toh · Designed &amp; built with vanilla HTML, CSS and JS</p>
         </div>
     </footer>
 
-    <!-- load javascript after loading all html content -->
-    <script src="script/script.js"></script>
-
+    <!-- GSAP for scroll-triggered and entrance animations -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

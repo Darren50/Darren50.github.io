@@ -116,14 +116,32 @@
     text-align: center;
 }
 
-.typed-out {
-    overflow: hidden;
-    border-right: .20em solid white;
+/* typewriter effect: the wrapper keeps the full text width the whole time,
+   so the letters never move — the clip-path just uncovers them left to right.
+   steps() must match the number of characters being typed */
+.typed-wrap {
+    display: inline-block;
+    position: relative;
     white-space: nowrap;
+}
+
+.typed-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0.05em;
+    bottom: 0.05em;
+    left: 0;
+    width: 0.15em;
+    background: white;
     animation:
-        typing 3s steps(60, end) forwards,
-        blink .8s infinite;
-    width: 0;
+        caret 2s steps(14, end) forwards,
+        blink .8s step-end infinite;
+}
+
+.typed-out {
+    display: block;
+    clip-path: inset(0 100% 0 0);
+    animation: typing 2s steps(14, end) forwards;
 }
 
 /* .type2 {
@@ -138,20 +156,32 @@
 
 @keyframes typing {
     from {
-        width: 0
+        clip-path: inset(0 100% 0 0)
     }
 
     to {
-        width: 100%
+        clip-path: inset(0 0 0 0)
+    }
+}
+
+@keyframes caret {
+    from {
+        left: 0
+    }
+
+    to {
+        left: 100%
     }
 }
 
 @keyframes blink {
-    from {
-        border-color: transparent
+
+    0%,
+    100% {
+        opacity: 1
     }
 
-    to {
-        border-color: white;
+    50% {
+        opacity: 0
     }
 }

@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article class="prose">
+    {% if page.heading %}<h1>{{ page.heading }}</h1>{% endif %}
+    {% if page.subtitle %}<p class="meta">{{ page.subtitle }}</p>{% endif %}
+    {{ content }}
+</article>
+
+{% if page.back %}
+<p class="back"><a href="{{ page.back.url | relative_url }}">← {{ page.back.title }}</a></p>
+{% endif %}

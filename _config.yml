@@ -1,0 +1,41 @@
+title: Darren Toh
+description: Computer Engineering @ NUS. Notes on things I build and learn.
+url: https://darren50.github.io
+author: Darren Toh
+email: darrentoh50@gmail.com
+
+# links shown in the sidebar / footer
+links:
+  github: https://github.com/Darren50
+  linkedin: https://www.linkedin.com/in/darrentoh25
+
+# top navigation, in order
+nav:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Work
+    url: /work/
+  - title: Blog
+    url: /blog/
+
+permalink: /blog/:year/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: post
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - .claude

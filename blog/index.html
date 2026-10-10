@@ -1,0 +1,17 @@
+---
+layout: page
+title: Blog
+heading: Blog
+---
+
+<ul class="list">
+  {% for post in site.posts %}
+  <li>
+    <span class="when">{{ post.date | date: '%b %-d, %Y' }}</span>
+    <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+  </li>
+  {% else %}
+  <li class="muted">No posts yet.</li>
+  {% endfor %}
+</ul>

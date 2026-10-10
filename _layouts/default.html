@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% seo %}
+    {% feed_meta %}
+</head>
+
+<body>
+    <div class="wrap">
+        <nav class="nav">
+            {% for item in site.nav %}
+            {% assign cls = '' %}
+            {% if item.url == '/' %}
+            {% if page.url == '/' %}{% assign cls = 'active' %}{% endif %}
+            {% else %}
+            {% assign prefix = page.url | slice: 0, item.url.size %}
+            {% if prefix == item.url %}{% assign cls = 'active' %}{% endif %}
+            {% endif %}
+            <a href="{{ item.url | relative_url }}" class="{{ cls }}">{{ item.title }}</a>
+            {% endfor %}
+        </nav>
+
+        {% if page.banner %}
+        <figure class="banner">
+            <img src="{{ page.banner | relative_url }}" alt="">
+            {% if page.banner_caption %}<figcaption>{{ page.banner_caption }}</figcaption>{% endif %}
+        </figure>
+        {% endif %}
+
+        <div class="layout{% if page.sidebar == false %} no-sidebar{% endif %}">
+            <main>
+                {{ content }}
+            </main>
+
+            {% unless page.sidebar == false %}
+            <aside class="sidebar">
+                <section>
+                    <h4>Latest posts</h4>
+                    {% for post in site.posts limit: 3 %}
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    {% else %}
+                    <p class="muted">Nothing yet. Soon!</p>
+                    {% endfor %}
+                </section>
+                <section>
+                    <h4>Elsewhere</h4>
+                    <a href="{{ '/work/' | relative_url }}">Selected work</a>
+                    <a href="{{ '/about/' | relative_url }}">About me</a>
+                    <a href="{{ site.links.github }}">GitHub</a>
+                    <a href="{{ site.links.linkedin }}">LinkedIn</a>
+                </section>
+                <section>
+                    <h4>Contact me</h4>
+                    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+                </section>
+            </aside>
+            {% endunless %}
+        </div>
+
+        <footer class="footer">
+            © {{ site.time | date: '%Y' }} {{ site.author }} ·
+            <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        </footer>
+    </div>
+</body>
+
+</html>

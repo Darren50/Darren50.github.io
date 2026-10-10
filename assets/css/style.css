@@ -236,7 +236,8 @@ pre code {
 }
 
 /* ---------- lists (blog / work / timeline) ---------- */
-.list {
+.list,
+.prose .list {
     list-style: none;
     padding: 0;
     margin: 0;

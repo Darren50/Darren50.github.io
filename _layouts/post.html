@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="prose">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">
+        {{ page.date | date: '%b %-d, %Y' }}
+        {% if page.tags.size > 0 %} · {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
+    </p>
+    {{ content }}
+</article>
+
+<p class="back"><a href="{{ '/blog/' | relative_url }}">← All posts</a></p>

@@ -102,7 +102,7 @@ Here's my favourite puzzle from the legendary Paul Morphy. White to play and mat
   <p class="puzzle-status" aria-live="polite">White to move. Click a piece to see where it can go.</p>
   <button type="button" class="puzzle-reset">Reset</button>
 </div>
-<script type="module" src="/assets/js/puzzle.js"></script>
+<script type="module" src="/assets/js/puzzle.js?v={{ site.time | date: '%s' }}"></script>
 
 ## Contact
 

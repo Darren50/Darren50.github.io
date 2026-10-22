@@ -235,6 +235,127 @@ pre code {
     margin-top: 3rem;
 }
 
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-top: .6rem;
+}
+
+.tags .tag {
+    margin: 0;
+    font-size: .8rem;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--surface);
+}
+
+.skills h4 {
+    margin: 1.4rem 0 0;
+    font-size: .8rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.prose img.portrait {
+    max-width: min(100%, 420px);
+}
+
+/* ---------- chess puzzle ---------- */
+.puzzle {
+    max-width: 360px;
+    margin: 1.5rem 0;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    aspect-ratio: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.sq {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+}
+
+.sq.light {
+    background: #f0d9b5;
+}
+
+.sq.dark {
+    background: #b58863;
+}
+
+.sq.last {
+    box-shadow: inset 0 0 0 100px rgba(205, 210, 106, .55);
+}
+
+.sq.sel {
+    box-shadow: inset 0 0 0 3px #4a8ef0;
+}
+
+.sq:focus-visible {
+    outline: 2px solid #4a8ef0;
+    outline-offset: -2px;
+}
+
+.pc {
+    font-size: clamp(26px, 8vw, 38px);
+    line-height: 1;
+    font-family: "Segoe UI Symbol", "DejaVu Sans", "Noto Sans Symbols 2", sans-serif;
+    user-select: none;
+}
+
+.pc.black {
+    color: #111;
+}
+
+.pc.white {
+    color: #fff;
+    text-shadow: 0 0 1px #000, 0 0 1px #000, 0 0 2px #000;
+}
+
+.puzzle-status {
+    margin: .7rem 0 .4rem;
+    font-size: .95rem;
+    color: var(--muted);
+    min-height: 1.6em;
+}
+
+.puzzle-status.good {
+    color: #8fd18f;
+}
+
+.puzzle-status.bad {
+    color: #e39a8c;
+}
+
+.puzzle-reset {
+    font: inherit;
+    font-size: .85rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: .2rem .8rem;
+    cursor: pointer;
+}
+
+.puzzle-reset:hover {
+    border-color: var(--muted);
+}
+
 /* ---------- lists (blog / work / timeline) ---------- */
 .list,
 .prose .list {

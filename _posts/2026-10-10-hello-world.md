@@ -15,11 +15,4 @@ HOW TO WRITE A NEW POST
 4. Commit and push. GitHub Pages rebuilds the site in about a minute.
 -->
 
-Here's what code looks like:
-
-```python
-def hello():
-    print("hello, world")
-```
-
 More soon.

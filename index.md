@@ -14,8 +14,8 @@ classes, I like tinkering with hardware, and I write about what I learn along th
 
 - Studying Computer Engineering at NUS (Class of 2028).
 - Tinkering with hardware side projects.
-- Recently wrapped up [Locked-In](/work/#locked-in), an AI-assisted study companion robot built on a Raspberry Pi 5, for NUS Orbital.
-- Grinding LeetCode, running and playing chess when I need a break.
+- Recently wrapped up [Locked-In](/work/locked-in/), an AI-assisted study companion robot built on a Raspberry Pi 5, for NUS Orbital.
+- Long-distance running, gymming and Lichess puzzles when I need a break.
 
 More about me [here](/about/), or see things I've built [here](/work/).
 

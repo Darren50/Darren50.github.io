@@ -2,7 +2,7 @@
 layout: page
 title: SaveUrFood
 heading: SaveUrFood
-subtitle: School project · Android Studio, Java, Firebase, SQLite
+subtitle: School project · 2022 · Android Studio, Java, Firebase, SQLite
 permalink: /work/saveurfood/
 back:
   title: All work

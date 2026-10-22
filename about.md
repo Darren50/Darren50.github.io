@@ -54,11 +54,53 @@ Diploma in Engineering with Business (with Merit).
 
 ## Skills
 
-- **Languages:** C++, Java, Python, PHP, JavaScript, SQL
-- **Web:** React, Laravel, Bootstrap, jQuery, HTML, CSS
-- **Tools:** Git, Linux (Raspberry Pi), MySQL, SQL Server, Firestore, pytest
-- **AI:** Gemini API, MediaPipe
-- **Spoken:** English, Chinese
+<div class="skills" markdown="0">
+  <h4>Languages</h4>
+  <div class="tags">
+    <span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span>
+    <span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">SQL</span>
+  </div>
+  <h4>Hardware &amp; embedded</h4>
+  <div class="tags">
+    <span class="tag">Raspberry Pi 5</span><span class="tag">GPIO (lgpio)</span><span class="tag">SPI displays</span>
+    <span class="tag">Pi Camera</span><span class="tag">Linux</span><span class="tag">systemd</span>
+    <span class="tag">Fusion 360</span><span class="tag">3D Printing</span>
+  </div>
+  <h4>Web &amp; backend</h4>
+  <div class="tags">
+    <span class="tag">React</span><span class="tag">Firebase</span><span class="tag">Firestore</span>
+    <span class="tag">Laravel</span><span class="tag">Bootstrap</span><span class="tag">jQuery</span>
+    <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">MySQL</span>
+    <span class="tag">SQL Server</span>
+  </div>
+  <h4>AI &amp; vision</h4>
+  <div class="tags">
+    <span class="tag">MediaPipe</span><span class="tag">Groq API</span><span class="tag">Whisper</span>
+    <span class="tag">Llama 3.3</span><span class="tag">Gemini API</span><span class="tag">Pillow</span>
+  </div>
+  <h4>Engineering practice</h4>
+  <div class="tags">
+    <span class="tag">Git</span><span class="tag">GitHub Actions</span><span class="tag">pytest</span>
+    <span class="tag">Vitest</span><span class="tag">Agile</span><span class="tag">UML</span>
+    <span class="tag">Adobe XD</span>
+  </div>
+  <h4>Spoken</h4>
+  <div class="tags">
+    <span class="tag">English</span><span class="tag">Chinese</span>
+  </div>
+</div>
+
+## Free time
+
+Free time includes long-distance running, gymming and solving puzzles on [Lichess](https://lichess.org). Here's a
+favourite by the legendary Paul Morphy. White to play and mate in two:
+
+<div id="puzzle" class="puzzle" markdown="0">
+  <div class="board" role="grid" aria-label="Chess puzzle board"></div>
+  <p class="puzzle-status" aria-live="polite">White to move. Click a piece, then a square.</p>
+  <button type="button" class="puzzle-reset">Reset</button>
+</div>
+<script src="/assets/js/puzzle.js" defer></script>
 
 ## Contact
 

@@ -269,6 +269,7 @@ pre code {
 }
 
 .board {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
@@ -280,9 +281,6 @@ pre code {
 
 .sq {
     all: unset;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     position: relative;
     min-width: 0;
@@ -298,11 +296,31 @@ pre code {
 }
 
 .sq.last {
-    box-shadow: inset 0 0 0 100px rgba(205, 210, 106, .55);
+    box-shadow: inset 0 0 0 100px rgba(155, 199, 0, .41);
 }
 
 .sq.sel {
-    box-shadow: inset 0 0 0 3px #4a8ef0;
+    box-shadow: inset 0 0 0 100px rgba(20, 85, 30, .5);
+}
+
+.sq.mated {
+    background: radial-gradient(circle, #ff0000 0%, #e70000 25%, rgba(169, 0, 0, 0) 89%, rgba(158, 0, 0, 0) 100%);
+}
+
+/* legal move hints, like lichess */
+.sq.dot::after {
+    content: "";
+    position: absolute;
+    inset: 37%;
+    border-radius: 50%;
+    background: rgba(20, 85, 30, .5);
+}
+
+.sq.cap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(transparent 0%, transparent 79%, rgba(20, 85, 0, .3) 80%);
 }
 
 .sq:focus-visible {
@@ -310,20 +328,29 @@ pre code {
     outline-offset: -2px;
 }
 
-.pc {
-    font-size: clamp(26px, 8vw, 38px);
-    line-height: 1;
-    font-family: "Segoe UI Symbol", "DejaVu Sans", "Noto Sans Symbols 2", sans-serif;
-    user-select: none;
+/* piece images come from chessground's cburnett set (.cg-wrap piece.*) */
+.board piece {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12.5%;
+    height: 12.5%;
+    background-size: cover;
+    pointer-events: none;
+    z-index: 2;
+    transition: transform .25s ease, opacity .25s ease;
+    will-change: transform;
 }
 
-.pc.black {
-    color: #111;
+.board piece.appear,
+.board piece.captured {
+    opacity: 0;
 }
 
-.pc.white {
-    color: #fff;
-    text-shadow: 0 0 1px #000, 0 0 1px #000, 0 0 2px #000;
+@media (prefers-reduced-motion: reduce) {
+    .board piece {
+        transition: none;
+    }
 }
 
 .puzzle-status {

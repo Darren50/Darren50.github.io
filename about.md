@@ -92,15 +92,17 @@ Diploma in Engineering with Business (with Merit).
 
 ## Free time
 
-Free time includes long-distance running, gymming and solving puzzles on [Lichess](https://lichess.org). Here's a
-favourite by the legendary Paul Morphy. White to play and mate in two:
+Free time includes long-distance running, gymming and solving puzzles on [Lichess](https://lichess.org).
 
+Here's my favourite puzzle from the legendary Paul Morphy. White to play and mate in two:
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.cburnett.css">
 <div id="puzzle" class="puzzle" markdown="0">
-  <div class="board" role="grid" aria-label="Chess puzzle board"></div>
-  <p class="puzzle-status" aria-live="polite">White to move. Click a piece, then a square.</p>
+  <div class="board cg-wrap" aria-label="Chess puzzle board"></div>
+  <p class="puzzle-status" aria-live="polite">White to move. Click a piece to see where it can go.</p>
   <button type="button" class="puzzle-reset">Reset</button>
 </div>
-<script src="/assets/js/puzzle.js" defer></script>
+<script type="module" src="/assets/js/puzzle.js"></script>
 
 ## Contact
 

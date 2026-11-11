@@ -9,7 +9,7 @@ permalink: /work/
   <li id="fpga-poker">
     <span class="when">2026</span>
     <a class="title" href="{{ '/work/fpga-poker/' | relative_url }}">FPGA Texas Hold'em</a>
-    <p>No-limit Texas Hold'em built entirely in Verilog on a Basys 3. I built the AI opponents, which estimate their
+    <p>An EE2026 project: no-limit Texas Hold'em built entirely in Verilog on a Basys 3. I built the AI opponents, which estimate their
       odds by playing out 256 random futures in hardware, plus a UART link that lets two boards play the same game.</p>
     <div class="tags">
       <span class="tag">Verilog</span><span class="tag">Vivado</span><span class="tag">Basys 3</span>

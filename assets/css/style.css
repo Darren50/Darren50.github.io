@@ -263,7 +263,7 @@ pre code {
 }
 
 .prose img.small {
-    max-width: min(100%, 340px);
+    max-width: min(100%, 420px);
 }
 
 .prose .video {

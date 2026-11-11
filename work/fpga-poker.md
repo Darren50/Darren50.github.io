@@ -2,7 +2,7 @@
 layout: page
 title: FPGA Texas Hold'em
 heading: FPGA Texas Hold'em
-subtitle: NUS · Basys 3 FPGA · Poker built entirely in hardware, with Monte Carlo AI opponents
+subtitle: NUS EE2026 Digital Design project. Poker built entirely in hardware on a Basys 3 FPGA, with Monte Carlo AI opponents.
 permalink: /work/fpga-poker/
 back:
   title: All work
@@ -15,7 +15,7 @@ A full game of no-limit Texas Hold'em built in Verilog on a Basys 3 FPGA, with n
 against three AI opponents on a 96 × 64 Pmod OLED. The whole game runs as logic on the chip: shuffling, dealing,
 betting, side pots and showdown. A second board can join over a UART cable for two-player games.
 
-This was a team project. My part was **the AI opponents and the link between two boards**, and that's what this page
+This was a team project for EE2026 (Digital Design) at NUS. My part was **the AI opponents and the link between two boards**, and that's what this page
 covers.
 
 ![Title screen](/images/fpga-poker/title.jpg){: .small}
@@ -151,4 +151,4 @@ The finished design uses about 14,700 LUTs, roughly 70% of the Basys 3's Artix-7
   synchronisation and serial communication (UART) with error checking
 - **Algorithms:** Monte Carlo simulation, pot-odds decision making and offline precomputation in C
 
-**Stack:** Verilog · Vivado · Basys 3 (Artix-7) · Pmod OLED · UART · C (offline table generation)
+**Stack:** Verilog, Vivado, Basys 3 (Artix-7), Pmod OLED, UART, and C for offline table generation

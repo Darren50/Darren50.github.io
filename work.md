@@ -6,6 +6,17 @@ permalink: /work/
 ---
 
 <ul class="list">
+  <li id="fpga-poker">
+    <span class="when">2026</span>
+    <a class="title" href="{{ '/work/fpga-poker/' | relative_url }}">FPGA Texas Hold'em</a>
+    <p>No-limit Texas Hold'em built entirely in Verilog on a Basys 3. I built the AI opponents, which estimate their
+      odds by playing out 256 random futures in hardware, plus a UART link that lets two boards play the same game.</p>
+    <div class="tags">
+      <span class="tag">Verilog</span><span class="tag">Vivado</span><span class="tag">Basys 3</span>
+      <span class="tag">FPGA</span><span class="tag">Monte Carlo</span><span class="tag">UART</span>
+      <span class="tag">Pmod OLED</span><span class="tag">C</span>
+    </div>
+  </li>
   <li id="locked-in">
     <span class="when">2026</span>
     <a class="title" href="{{ '/work/locked-in/' | relative_url }}">Locked-In</a>

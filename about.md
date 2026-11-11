@@ -57,12 +57,13 @@ Diploma in Engineering with Business (with Merit).
 <div class="skills" markdown="0">
   <h4>Languages</h4>
   <div class="tags">
-    <span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span>
+    <span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">Verilog</span>
     <span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">SQL</span>
   </div>
   <h4>Hardware &amp; embedded</h4>
   <div class="tags">
-    <span class="tag">Raspberry Pi 5</span><span class="tag">GPIO (lgpio)</span><span class="tag">SPI displays</span>
+    <span class="tag">FPGA (Basys 3 / Artix-7)</span><span class="tag">Vivado</span><span class="tag">Digital logic design</span>
+    <span class="tag">UART</span><span class="tag">Raspberry Pi 5</span><span class="tag">GPIO (lgpio)</span><span class="tag">SPI displays</span>
     <span class="tag">Pi Camera</span><span class="tag">Linux</span><span class="tag">systemd</span>
     <span class="tag">Fusion 360</span><span class="tag">3D Printing</span>
   </div>

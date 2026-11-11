@@ -14,6 +14,7 @@ classes, I like tinkering with hardware, and I write about what I learn along th
 
 - Studying Computer Engineering at NUS (Class of 2028).
 - Tinkering with hardware side projects.
+- Just finished [FPGA Texas Hold'em](/work/fpga-poker/), poker on a Basys 3 with Monte Carlo AI opponents built in Verilog.
 - Recently wrapped up [Locked-In](/work/locked-in/), an AI-assisted study companion robot built on a Raspberry Pi 5, for NUS Orbital.
 - Long-distance running, gymming and Lichess puzzles when I need a break.
 

@@ -262,6 +262,32 @@ pre code {
     max-width: min(100%, 420px);
 }
 
+.prose img.small {
+    max-width: min(100%, 340px);
+}
+
+.prose .video {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin: 1.5rem 0 0.5rem;
+}
+
+.prose .video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 6px;
+}
+
+.prose .caption {
+    font-size: 0.875rem;
+    opacity: 0.75;
+    text-align: center;
+    margin-top: 0;
+}
+
 /* ---------- chess puzzle ---------- */
 .puzzle {
     max-width: 360px;
